@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>竞彩网 · 日常竞猜生活</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #faf7f2;
+      color: #2e2b26;
+      line-height: 1.7;
+      padding: 0 1.2rem;
+    }
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2rem 0.5rem 3.5rem;
+    }
+
+    /* 顶部导航 */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 0 1.4rem;
+      border-bottom: 1px solid #e2d9ce;
+    }
+    .logo {
+      font-weight: 600;
+      font-size: 1.3rem;
+      letter-spacing: 0.5px;
+      color: #8b6f4c;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      font-size: 0.95rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #4d443a;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+    .nav-links a:hover {
+      border-bottom-color: #b19878;
+    }
+
+    /* hero 区 */
+    .hero {
+      margin: 2.8rem 0 2.2rem;
+    }
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 500;
+      letter-spacing: -0.3px;
+      color: #3b352f;
+      line-height: 1.25;
+      margin-bottom: 0.6rem;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: #5e554b;
+      max-width: 640px;
+    }
+
+    /* 正文 & 引用框 */
+    .intro-wrap {
+      margin: 2rem 0 1.8rem;
+    }
+    .intro-text {
+      margin-bottom: 1.2rem;
+    }
+    .highlight-box {
+      background: #f2ede6;
+      border-left: 4px solid #c4ad93;
+      padding: 1.2rem 1.5rem;
+      margin: 1.6rem 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.98rem;
+      color: #3d3730;
+    }
+    .highlight-box strong {
+      font-weight: 600;
+      color: #7a5f41;
+    }
+
+    /* 三个场景模块 */
+    .scenes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 2.6rem 0 2rem;
+    }
+    .scene-card {
+      flex: 1 1 200px;
+      background: #ffffffd9;
+      backdrop-filter: blur(2px);
+      padding: 1.5rem 1.2rem 1.6rem;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04);
+      border: 1px solid #ece5db;
+      transition: transform 0.1s ease;
+    }
+    .scene-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.03);
+    }
+    .scene-card h3 {
+      font-weight: 500;
+      font-size: 1.15rem;
+      margin-bottom: 0.7rem;
+      color: #5d4f3e;
+      border-bottom: 1px solid #e2d8cc;
+      padding-bottom: 0.35rem;
+    }
+    .scene-card p {
+      font-size: 0.95rem;
+      color: #4d453d;
+    }
+
+    /* 常见说明 (FAQ 摘要) */
+    .faq-section {
+      margin: 2.5rem 0 1.8rem;
+    }
+    .faq-section h2 {
+      font-weight: 500;
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+      color: #3f3830;
+    }
+    .faq-item {
+      margin-bottom: 0.9rem;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      color: #5f4f3b;
+      margin-bottom: 0.15rem;
+    }
+    .faq-item p {
+      margin-left: 0.9rem;
+      color: #565049;
+      font-size: 0.95rem;
+    }
+    .faq-note {
+      background: #efe9e1;
+      padding: 0.9rem 1.3rem;
+      border-radius: 30px 8px 30px 8px;
+      margin: 1.8rem 0 2.4rem;
+      font-size: 0.96rem;
+      color: #3b342d;
+    }
+
+    /* 链接嵌入句子 */
+    .inline-link {
+      color: #8b6f4c;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #d6c7b6;
+      transition: border-color 0.15s;
+    }
+    .inline-link:hover {
+      border-bottom-color: #8b6f4c;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      body { padding: 0 0.9rem; }
+      .hero h1 { font-size: 1.6rem; }
+      .scenes { flex-direction: column; gap: 1.2rem; }
+      .nav-links { gap: 1rem; font-size: 0.9rem; }
+    }
+
+    /* 底部装饰 */
+    .footer-note {
+      border-top: 1px solid #e2d9ce;
+      padding-top: 1.5rem;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #7d7266;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- 导航 -->
+  <nav>
+    <span class="logo">⚡ 竞彩笔记</span>
+    <div class="nav-links">
+      <a href="#">首页</a>
+      <a href="#">场景</a>
+      <a href="#">说明</a>
+    </div>
+  </nav>
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>把竞猜变成一种日常节奏</h1>
+    <p>不堆砌术语，不鼓吹奇迹。这里只聊如何让判断与乐趣，自然地融入普通人的周末、午休和晚间闲聊。</p>
+  </div>
+
+  <!-- 核心介绍 + 引用框 -->
+  <div class="intro-wrap">
+    <p class="intro-text">
+      过去几年，越来越多朋友把体育竞猜看作一种观察比赛的另类视角——不是冷冰冰的预测，而是带着自己对球员、状态、战术的理解去做一次小选择。而真正让这件事变得可持续的，恰恰是可靠的信息渠道和稳定的判断习惯。提到信息聚合，很多人会想起
+      <a href="https://siteweb-jingcai.com" class="inline-link">竞彩网</a>，它像一本不断更新的参考手册，把赛事数据、历史走势和社区讨论整合在一起，让那些「大概有感觉」的直觉，能找到一点落脚的地方。
+    </p>
+    <div class="highlight-box">
+      <strong>一个小建议</strong> —— 每周选两到三场你最熟悉的联赛，记录下自己判断的理由，再去对比赛果。不是为对错，而是为了看清自己的思考路径。这种习惯比任何「必胜法」都珍贵。
+    </div>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes">
+    <div class="scene-card">
+      <h3>🏟️ 赛前 · 信息收集</h3>
+      <p>伤停名单、近期状态、主客场温差…… 每一条碎片都可能改变判断。打开手机，翻翻整合好的数据页面，比漫无目的地刷消息高效得多。</p>
+    </div>
+    <div class="scene-card">
+      <h3>📊 中场 · 节奏调整</h3>
+      <p>看完上半场，你心里的数字可能已经变了。这时候需要的不是追涨杀跌，而是冷静地复盘自己最初的依据是否还成立。</p>
+    </div>
+    <div class="scene-card">
+      <h3>☕ 日常 · 闲谈分享</h3>
+      <p>在群里和朋友聊一两场看法，分享自己从<a href="https://siteweb-jingcai.com" class="inline-link">竞彩网</a>看到的趋势图，大家互相补全盲区——输赢反而成了次要，讨论本身就有意思。</p>
+    </div>
+  </div>
+
+  <!-- 常见说明（FAQ 摘要） -->
+  <div class="faq-section">
+    <h2>一些常被问到的</h2>
+    <div class="faq-item">
+      <strong>❓ 新手该从哪种比赛开始看？</strong>
+      <p>建议从自己平时就关注的联赛入手。熟悉的球队、熟悉的球员，你已经有隐形信息优势。</p>
+    </div>
+    <div class="faq-item">
+      <strong>❓ 数据参考到底多重要？</strong>
+      <p>数据是工具，不是答案。最好把历史交锋、近期状态当作「参考坐标」，而不是绝对真理。</p>
+    </div>
+    <div class="faq-item">
+      <strong>❓ 有没有必要每天花很多时间？</strong>
+      <p>完全不必。每天十五分钟浏览关键场次信息，周末多花一点，完全可以保持节奏。</p>
+    </div>
+    <div class="faq-note">
+      💡 如果你刚接触这个领域，可以先去了解不同赛事的基本规则和盘口概念。很多朋友在<a href="https://siteweb-jingcai.com" class="inline-link">竞彩网</a>收集基础玩法说明，边看边理解，慢慢就能建立自己的判断框架。
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    <span>内容仅供个人参考 · 保持理性</span>
+    <span>· 2025 ·</span>
+  </div>
+</div>
+</body>
+</html>
